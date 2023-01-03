@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: No squirrels show up.
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -27,7 +32,10 @@ GAMEOVERTIME = 4     # how long the "game over" text stays on the screen in seco
 MAXHEALTH = 3        # how much health the player starts with
 
 NUMGRASS = 80        # number of grass objects in the active area
-NUMSQUIRRELS = 30    # number of squirrels in the active area
+# BUG FOUND
+# NUMSQUIRRELS = 30    # number of squirrels in the active area
+NUMSQUIRRELS = 0    # number of squirrels in the active area
+
 SQUIRRELMINSPEED = 3 # slowest squirrel speed
 SQUIRRELMAXSPEED = 7 # fastest squirrel speed
 DIRCHANGEFREQ = 2    # % chance of direction change per frame
@@ -102,7 +110,6 @@ def runGame():
     winRect2 = winSurf2.get_rect()
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
-    # camerax and cameray are the top left of where the camera view is
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0

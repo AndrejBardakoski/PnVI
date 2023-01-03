@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: Game doesn't run - "TypeError: 'dict' object cannot be interpreted as an integer"
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -102,7 +107,6 @@ def runGame():
     winRect2 = winSurf2.get_rect()
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
-    # camerax and cameray are the top left of where the camera view is
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0
@@ -211,7 +215,9 @@ def runGame():
 
 
         # draw the health meter
-        drawHealthMeter(playerObj['health'])
+        # BUG FOUND
+        # drawHealthMeter(playerObj['health'])
+        drawHealthMeter(playerObj)
 
         for event in pygame.event.get(): # event handling loop
             if event.type == QUIT:

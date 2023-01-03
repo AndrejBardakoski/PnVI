@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: Game doesn't run - "KeyError: 'widht'"
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -103,7 +108,6 @@ def runGame():
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
     # camerax and cameray are the top left of where the camera view is
-    # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0
 
@@ -186,7 +190,9 @@ def runGame():
         for gObj in grassObjs:
             gRect = pygame.Rect( (gObj['x'] - camerax,
                                   gObj['y'] - cameray,
-                                  gObj['width'],
+                                  # BUG FOUND
+                                  # gObj['width'],
+                                  gObj['widht'],
                                   gObj['height']) )
             DISPLAYSURF.blit(GRASSIMAGES[gObj['grassImage']], gRect)
 

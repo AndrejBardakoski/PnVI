@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: Game doesn't run - "NameError: global name 'L_SQUIR_IMG' is not defined"
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -71,8 +76,12 @@ def main():
     BASICFONT = pygame.font.Font('freesansbold.ttf', 32)
 
     # load the image files
-    L_SQUIR_IMG = pygame.image.load('squirrel.png')
-    R_SQUIR_IMG = pygame.transform.flip(L_SQUIR_IMG, True, False)
+    # BUG FOUND
+    # L_SQUIR_IMG = pygame.image.load('squirrel.png')
+    # R_SQUIR_IMG = pygame.transform.flip(L_SQUIR_IMG, True, False)
+    R_SQUIR_IMG = pygame.image.load('squirrel.png')
+    L_SQUIR_IMG = pygame.transform.flip(L_SQUIR_IMG, True, False)
+
     GRASSIMAGES = []
     for i in range(1, 5):
         GRASSIMAGES.append(pygame.image.load('grass%s.png' % i))
@@ -102,7 +111,6 @@ def runGame():
     winRect2 = winSurf2.get_rect()
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
-    # camerax and cameray are the top left of where the camera view is
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0

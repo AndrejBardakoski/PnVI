@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: Squirrel disappears after moving down.
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -103,7 +108,6 @@ def runGame():
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
     # camerax and cameray are the top left of where the camera view is
-    # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0
 
@@ -177,7 +181,9 @@ def runGame():
         if (cameray + HALF_WINHEIGHT) - playerCentery > CAMERASLACK:
             cameray = playerCentery + CAMERASLACK - HALF_WINHEIGHT
         elif playerCentery - (cameray + HALF_WINHEIGHT) > CAMERASLACK:
-            cameray = playerCentery - CAMERASLACK - HALF_WINHEIGHT
+            # BUG FOUND
+            # cameray = playerCentery - CAMERASLACK - HALF_WINHEIGHT
+            cameray = playerCentery - CAMERASLACK - WINHEIGHT
 
         # draw the green background
         DISPLAYSURF.fill(GRASSCOLOR)

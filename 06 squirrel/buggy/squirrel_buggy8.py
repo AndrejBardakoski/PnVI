@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: When you win the game, "(Press "r" to restart.)" text doesn't appear in the center.
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -99,10 +104,12 @@ def runGame():
     winRect.center = (HALF_WINWIDTH, HALF_WINHEIGHT)
 
     winSurf2 = BASICFONT.render('(Press "r" to restart.)', True, WHITE)
-    winRect2 = winSurf2.get_rect()
+    # BUG FOUND
+    # winRect2 = winSurf2.get_rect()
+    winRect2 = winSurf.get_rect()
+
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
-    # camerax and cameray are the top left of where the camera view is
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0

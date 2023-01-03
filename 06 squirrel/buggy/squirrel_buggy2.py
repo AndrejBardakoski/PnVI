@@ -1,3 +1,8 @@
+# This version of the game has a bug in it. See if you can figure out how to fix it.
+# http://inventwithpython.com/pygame/buggy
+# Bug Description: Game never resets after the first game over.
+
+
 # Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
@@ -102,7 +107,6 @@ def runGame():
     winRect2 = winSurf2.get_rect()
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
 
-    # camerax and cameray are the top left of where the camera view is
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
     cameray = 0
@@ -300,7 +304,9 @@ def runGame():
         else:
             # game is over, show "game over" text
             DISPLAYSURF.blit(gameOverSurf, gameOverRect)
-            if time.time() - gameOverStartTime > GAMEOVERTIME:
+            # BUG FOUND
+            # if time.time() - gameOverStartTime > GAMEOVERTIME:
+            if time.time() - gameOverStartTime == GAMEOVERTIME:
                 return # end the current game
 
         # check if the player has won.
